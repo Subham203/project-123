@@ -6,15 +6,23 @@ import ProfilePage from "./pages/ProfilePage"
 
 const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/profile' element={<ProfilePage />} />
-      </Routes>
-    </div>
+<div className="
+  min-h-screen
+  bg-[url('./src/assets/bgImage.svg')]
+  bg-no-repeat
+  bg-center
+  bg-cover
+">
+  <Routes>
+    <Route path='/' element={<HomePage />} />
+    <Route path='/login' element={<LoginPage />} />
+    <Route path='/profile' element={<ProfilePage />} />
+  </Routes>
+</div>
+
   )
 }
 
 
 export default App
+

@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+/* Tailwind layers */
 @import "tailwindcss";
 
-*{
-    font-family: "Outfit", sans-serif;
+
+/* Global font */
+* {
+  font-family: "Outfit", sans-serif;
 }
 
-::-webkit-scrollbar{
-  display:none;
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
 }
