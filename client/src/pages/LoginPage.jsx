@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import assets from '../assets/assets'
+import { AuthContext } from '../../context/AuthContext.jsx'
 
 const LoginPage = () => {
   const [currState,setCurrState]=useState("Sign up")
@@ -9,6 +10,8 @@ const LoginPage = () => {
   const[bio,setBio]=useState("")
   const [isDataSubmitted,setIsDataSubmitted]=useState(false)
 
+  const {login} = useContext(AuthContext)
+
   const onSubmitHandler =(event)=>{
     event.preventDefault();
 
@@ -16,6 +19,9 @@ const LoginPage = () => {
       setIsDataSubmitted(true)
       return;
     }
+    //after  authContext page
+    login(currState === "Sign up" ? 'signup' : 'login', {fullName, email, password, bio})
+    //after  authContext page
   }
   return (
     <div className='min-h-screen bg-cover bg-center flex items-center justify-center gap-8 sm:justify-evenly max-sm:flex-col backdrop-blur-2xl' >
@@ -31,14 +37,14 @@ const LoginPage = () => {
           </h2>
           {currState==="Sign up" && !isDataSubmitted
            && (<input onChange={(e)=>setFullName(e.target.value) } value={fullName}
-           type="text" className='p-2 border border-gray-500 rounded-md focus:outline-none ' placeholder='FullName' required />)}
+           type="text" className='p-2 border border-gray-500 rounded-md focus:outline-none ' placeholder='FullName' required autoComplete="name"/>)}
           
           {!isDataSubmitted &&(
             <>
               <input onChange={(e)=>setEmail(e.target.value) } value={email}
-              type="email" placeholder='Email Address' required className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500' />
+              type="email" placeholder='Email Address' required className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'autoComplete="username" />
               <input onChange={(e)=>setPassword(e.target.value) } value={password}
-              type="password" placeholder='Password' required className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500' />
+              type="password" placeholder='Password' required className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 'autoComplete="current-password" />
             </>
           )}
           {
