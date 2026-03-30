@@ -1,2 +1,2 @@
-my railway backend = 'https://independent-reverence-production-0756.up.railway.app'
-my cloudflare frontend code= 'https://project-aisitebuilder.dashsubham008.workers.dev'
+my vercel backend url: 'https://project-123-backend.vercel.app'
+my vercel frontend url: 'https://project-123-frontend.vercel.app'
